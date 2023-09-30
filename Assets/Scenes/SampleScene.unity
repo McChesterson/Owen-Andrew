@@ -2496,7 +2496,7 @@ MonoBehaviour:
   walkSpeed: 5
   dashSpeed: 10
   dash: 0
-  dashLength: 1
+  dashLength: 4
   dashRemaining: 0
 --- !u!50 &1502553892
 Rigidbody2D:

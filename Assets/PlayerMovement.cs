@@ -19,12 +19,15 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //getting the input from w,a,s,d and arrows
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement = movement.normalized;
+        if (!dash)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+            movement = movement.normalized;
+        }
 
-        //dashing
-        if (Input.GetKeyDown(KeyCode.C))
+        //dashing vs. not dashing
+        if (Input.GetKeyDown(KeyCode.C) && dashRemaining < 0.01)
         {
             dash = true;
             dashRemaining = dashLength;
@@ -34,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (dashRemaining > 0)
+            if (dashRemaining > 0.01)
             {
                 dashRemaining -= 0.5f * Time.fixedDeltaTime;
             }
@@ -51,8 +54,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
         animator.SetBool("isDashing", dash);
-        
-
 
         //flipping animation when walking to the left
         if (movement.x < -0.01f)
