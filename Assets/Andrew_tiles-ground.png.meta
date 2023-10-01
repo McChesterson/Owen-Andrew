@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -5491,12 +5491,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Andrew_tiles-ground_207: -750942420
+      Andrew_tiles-ground_248: 1958430337
       Andrew_tiles-ground_135: 1875020504
-      Andrew_tiles-ground_250: -375736856
+      Andrew_tiles-ground_207: -750942420
       Andrew_tiles-ground_51: -2146961856
       Andrew_tiles-ground_189: -1163474506
-      Andrew_tiles-ground_248: 1958430337
+      Andrew_tiles-ground_42: -1361199747
       Andrew_tiles-ground_87: -1018263431
       Andrew_tiles-ground_227: 548290307
       Andrew_tiles-ground_93: -51562843
@@ -5523,19 +5523,19 @@ TextureImporter:
       Andrew_tiles-ground_6: 466158266
       Andrew_tiles-ground_202: 440286847
       Andrew_tiles-ground_179: -1509792072
-      Andrew_tiles-ground_149: 1295091350
       Andrew_tiles-ground_205: 328829517
       Andrew_tiles-ground_237: -647872151
+      Andrew_tiles-ground_149: 1295091350
       Andrew_tiles-ground_178: 1003168402
       Andrew_tiles-ground_130: 827015871
       Andrew_tiles-ground_26: 1068936965
-      Andrew_tiles-ground_155: -1594746629
       Andrew_tiles-ground_175: -981378881
-      Andrew_tiles-ground_251: -1853322213
+      Andrew_tiles-ground_232: 1630576706
+      Andrew_tiles-ground_155: -1594746629
       Andrew_tiles-ground_113: 616183979
       Andrew_tiles-ground_246: 2006254747
+      Andrew_tiles-ground_251: -1853322213
       Andrew_tiles-ground_3: 330853866
-      Andrew_tiles-ground_232: 1630576706
       Andrew_tiles-ground_83: 1762987214
       Andrew_tiles-ground_98: -1313711971
       Andrew_tiles-ground_253: 1394199140
@@ -5746,7 +5746,7 @@ TextureImporter:
       Andrew_tiles-ground_25: 227129566
       Andrew_tiles-ground_151: -1998890064
       Andrew_tiles-ground_191: -750393842
-      Andrew_tiles-ground_42: -1361199747
+      Andrew_tiles-ground_250: -375736856
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

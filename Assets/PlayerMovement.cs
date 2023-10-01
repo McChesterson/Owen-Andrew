@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public bool dash = false;
     public float dashLength = 3f;
     public float dashRemaining;
+    public float dashCooldown;
     
     void Update()
     {
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //dashing vs. not dashing
-        if (Input.GetKeyDown(KeyCode.C) && dashRemaining < 0.01)
+        if (Input.GetKeyDown(KeyCode.C) && dashRemaining < 0.01f && dashCooldown < 0.01f)
         {
             dash = true;
             dashRemaining = dashLength;
@@ -45,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 dash = false;
                 moveSpeed = walkSpeed;
+                dashCooldown = 5f;
+                //for (int i = 0; dashCooldown >)
+
             }
             
         }
