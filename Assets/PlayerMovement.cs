@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float walkSpeed = 5f;
     public float dashSpeed = 10f;
-    Vector2 movement;
+    public Vector2 movement;
 
     public bool dash = false;
     public float dashLength = 3f;
@@ -26,9 +26,13 @@ public class PlayerMovement : MonoBehaviour
             movement.y = Input.GetAxisRaw("Vertical");
             movement = movement.normalized;
         }
+        //if (dash) (trying to figure out a dash cooldown
+        {
+            //dashCooldown = 10f;
+        }
 
         //dashing vs. not dashing
-        if (Input.GetKeyDown(KeyCode.C) && dashRemaining < 0.01f && dashCooldown < 0.01f)
+        if (Input.GetKeyDown(KeyCode.C) && dashRemaining < 0.01f)
         {
             dash = true;
             dashRemaining = dashLength;
@@ -46,8 +50,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 dash = false;
                 moveSpeed = walkSpeed;
-                dashCooldown = 5f;
-                //for (int i = 0; dashCooldown >)
 
             }
             
