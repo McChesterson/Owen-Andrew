@@ -1118,9 +1118,9 @@ MonoBehaviour:
   dashSpeed: 10
   movement: {x: 0, y: 0}
   dash: 0
-  dashLength: 4
+  dashLength: 0.3
   dashRemaining: 0
-  dashCooldown: 0
+  dashReady: 1
 --- !u!50 &1502553892
 Rigidbody2D:
   serializedVersion: 4

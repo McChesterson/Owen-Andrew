@@ -13,10 +13,21 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 movement;
 
     public bool dash = false;
-    public float dashLength = 3f;
-    public float dashRemaining;
-    public float dashCooldown;
-    
+    public float dashLength = 0.3f;
+    public float dashRemaining = 0f;
+    public bool dashReady = true;
+
+    private void Start()
+    {
+        moveSpeed = walkSpeed;
+        dashRemaining = dashLength;
+    }
+
+    void DashCooldown()
+    {
+        dashReady = true;
+    }
+
     void Update()
     {
         //getting the input from w,a,s,d and arrows
@@ -26,34 +37,34 @@ public class PlayerMovement : MonoBehaviour
             movement.y = Input.GetAxisRaw("Vertical");
             movement = movement.normalized;
         }
-        //if (dash) (trying to figure out a dash cooldown
-        {
-            //dashCooldown = 10f;
-        }
 
-        //dashing vs. not dashing
-        if (Input.GetKeyDown(KeyCode.C) && dashRemaining < 0.01f)
+        //checking if dash is possible and setting to dash speed
+        if (Input.GetKeyDown(KeyCode.C) && dashReady == true)
         {
             dash = true;
-            dashRemaining = dashLength;
+            dashReady = false;
             moveSpeed = dashSpeed;
             Debug.Log("dashed");
             
         }
-        else
+        if (dash)
         {
-            if (dashRemaining > 0.01)
+            //if the dash in still going, lower the time left in the dash
+            if (dashRemaining > 0)
             {
-                dashRemaining -= 0.5f * Time.fixedDeltaTime;
+                dashRemaining -= Time.deltaTime;
             }
+            //setting the speed to walkSpeed when dashing isn't happening
             else
             {
                 dash = false;
                 moveSpeed = walkSpeed;
-
+                dashRemaining = dashLength;
+                Invoke("DashCooldown", 2f);
             }
-            
         }
+
+        
 
         //setting what animation to use
         animator.SetFloat("Horizontal", movement.x);
