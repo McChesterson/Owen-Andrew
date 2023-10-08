@@ -5,8 +5,9 @@ using UnityEngine;
 public class FireBlast : MonoBehaviour
 {
     public GameObject player;
-    public Vector3 playerDirection;
+    public Vector3 fireDirection;
 
+    
     
     void Start()
     {
@@ -16,6 +17,11 @@ public class FireBlast : MonoBehaviour
 
     void Update()
     {
-        playerDirection = player.GetComponent<PlayerMovement>().movement;
+        fireDirection = player.GetComponent<PlayerMovement>().playerDirection;
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            
+        }
     }
 }

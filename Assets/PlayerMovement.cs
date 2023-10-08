@@ -10,17 +10,21 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float walkSpeed = 5f;
     public float dashSpeed = 10f;
+    
     public Vector2 movement;
+    public Vector2 playerDirection;
 
     public bool dash = false;
     public float dashLength = 0.3f;
     public float dashRemaining = 0f;
     public bool dashReady = true;
 
+
     private void Start()
     {
         moveSpeed = walkSpeed;
         dashRemaining = dashLength;
+        playerDirection = new (0, -1);
     }
 
     void DashCooldown()
@@ -47,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("dashed");
             
         }
+        //when the dash starts
         if (dash)
         {
             //if the dash in still going, lower the time left in the dash
@@ -54,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 dashRemaining -= Time.deltaTime;
             }
-            //setting the speed to walkSpeed when dashing isn't happening
+            //ending the dash and starting the DashCooldown
             else
             {
                 dash = false;
@@ -64,7 +69,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        
+        //setting the playerDirection variable to be equal to the last movement
+        if (movement.x != 0f || movement.y != 0f)
+        {
+            playerDirection = movement;
+        }
 
         //setting what animation to use
         animator.SetFloat("Horizontal", movement.x);

@@ -1136,12 +1136,13 @@ MonoBehaviour:
   animator: {fileID: 1502553895}
   moveSpeed: 5
   walkSpeed: 5
-  dashSpeed: 10
+  dashSpeed: 15
   movement: {x: 0, y: 0}
+  playerDirection: {x: 0, y: 0}
   dash: 0
-  dashLength: 0.3
+  dashLength: 0.2
   dashRemaining: 0
-  dashReady: 1
+  dashReady: 0
 --- !u!50 &1502553892
 Rigidbody2D:
   serializedVersion: 4
@@ -1289,7 +1290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1502553890}
-  playerDirection: {x: 0, y: 0, z: 0}
+  fireDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1583105036
 GameObject:
   m_ObjectHideFlags: 0
