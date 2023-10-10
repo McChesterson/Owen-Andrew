@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class FireBlast : MonoBehaviour
 {
-    public GameObject player;
     public Vector3 fireDirection;
 
-    
-    
-    void Start()
-    {
-        
-    }
-    
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+
+    public float bulletForce = 15f;
 
     void Update()
     {
-        fireDirection = player.GetComponent<PlayerMovement>().playerDirection;
+        fireDirection = GetComponent<PlayerMovement>().playerDirection;
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            
+            Shoot();
         }
+    }
+
+    void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(new Vector2 (fireDirection.x, fireDirection.y) * bulletForce, ForceMode2D.Impulse);
+
     }
 }

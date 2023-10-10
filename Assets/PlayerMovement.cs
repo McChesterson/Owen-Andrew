@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //checking if dash is possible and setting to dash speed
-        if (Input.GetKeyDown(KeyCode.C) && dashReady == true)
+        if (Input.GetKeyDown(KeyCode.X) && dashReady == true)
         {
             dash = true;
             dashReady = false;
