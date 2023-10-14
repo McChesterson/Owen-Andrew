@@ -10,14 +10,17 @@ public class FireBlast : MonoBehaviour
     public GameObject bulletPrefab;
 
     public float bulletForce = 15f;
+    public bool fireReady = true;
+    public float fireDelay = 0.5f;
 
     void Update()
     {
         fireDirection = GetComponent<PlayerMovement>().playerDirection;
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && fireReady == true)
         {
             Shoot();
+            Invoke("ShootAgain", fireDelay);
         }
     }
 
@@ -26,6 +29,11 @@ public class FireBlast : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2 (fireDirection.x, fireDirection.y) * bulletForce, ForceMode2D.Impulse);
+        fireReady = false;
+    }
 
+    void ShootAgain()
+    {
+        fireReady = true;
     }
 }
