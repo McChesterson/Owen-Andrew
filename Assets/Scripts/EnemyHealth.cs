@@ -6,9 +6,14 @@ public class EnemyHealth : MonoBehaviour
 {
     public int health = 10;
 
+    public SpriteRenderer sR;
+    public Color32 flashColor;
+    public Color32 baseColor;
+    public float flashLength;
+
     void Start()
     {
-
+        sR.color = baseColor;
     }
 
     void Update()
@@ -21,11 +26,16 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("has collided with trigger");
         if (other.tag == "Projectile")
         {
             health--;
-            Debug.Log("lost health");
+            StartCoroutine("ColorFlash");
         }
+    }
+    IEnumerator ColorFlash()
+    {
+        sR.color = flashColor;
+        yield return new WaitForSeconds(flashLength);
+        sR.color = baseColor;
     }
 }
